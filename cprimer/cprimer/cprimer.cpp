@@ -3,11 +3,39 @@
 
 #include <iostream>
 
-#include "add_Item.h"
+#include "add_Item.h" 
+
+#include "useShareVariable1.h"
+#include "useShareVariable2.h"
+
+void testVariable() {
+	float f1 = 4.4f;
+	float f2 = 4.5f;
+	int n1 = int(f1);
+	int n2 = int(f2);
+
+	unsigned char c = -1; //c的值为255（该值对256取模后所得的余数）
+	//signed char c = 256;  //c的值未定义）
+
+	unsigned u1 = 42, u2 = 10;
+	bool  b = (c != 255);
+	std::cout << n1 << ";" << n2 << ";" << b << ";" << u2 - u1  << std::endl;
+}
+
+void testChar() {
+	std::cout << "\tHi!\n";  // prints a tab followd by "Hi!" and a newline
+	std::cout << "Hi \x4dO\115!\n"; // prints Hi MOM! followed by a newline
+	std::cout << '\115' << '\n';    // prints M followed by a newline
+}
 
 int main()
 {
 	//addItem::test();
+	useShareVariable1::test();
+	nShare = 2;
+	useShareVariable2::test();
+	testVariable();
+	//testChar();
 	addItem::test2();
     std::cout << "Hello World!\n";
 }
