@@ -7,6 +7,10 @@
 
 #include "useShareVariable1.h"
 #include "useShareVariable2.h"
+#include "stringTest.h"
+#include "vectorTest.h"
+#include "MyExecption.h"
+
 
 void testVariable() {
 	float f1 = 4.4f;
@@ -30,7 +34,22 @@ void testChar() {
 
 int main()
 {
+	try
+	{
+		throw MyExecption();
+	}
+	catch (MyExecption& e)
+	{
+		std::cout << "MyException caught" << std::endl;
+		//std::cout << e.whate() << std::endl;
+	} 
+
+
 	//addItem::test();
+	vectorTest::test();
+
+	stringTest::getCin();
+	stringTest::getLine();
 	useShareVariable1::test();
 	nShare = 2;
 	useShareVariable2::test();
