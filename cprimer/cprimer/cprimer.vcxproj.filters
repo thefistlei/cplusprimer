@@ -32,5 +32,23 @@
     <ClInclude Include="add_item.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ioTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="orderContainer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="genericAlgorithm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TestSales_item.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mapTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="wordTransform.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

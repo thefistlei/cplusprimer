@@ -44,5 +44,16 @@ public:
 			curr2++;
 		}
 	} 
+
+	void static testSwap()
+	{
+		vector<int> v1 = { 1,2,3 };
+		vector<int> v2 = { 4,5,6,7,8,9 };
+		swap(v1, v2);
+		int i = 0;
+	}
+	////swapºó
+	//v1 = { 4,5,6,7,8,9 };
+	//v2 = { 1,2,3 };
 }; 
 #endif

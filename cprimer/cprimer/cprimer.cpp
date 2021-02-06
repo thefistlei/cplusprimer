@@ -10,7 +10,11 @@
 #include "stringTest.h"
 #include "vectorTest.h"
 #include "MyExecption.h"
+#include "ioTest.h"
+#include "orderContainer.h"
+#include "genericAlgorithm.h"
 
+#include "mapTest.h"
 
 void testVariable() {
 	float f1 = 4.4f;
@@ -32,8 +36,48 @@ void testChar() {
 	std::cout << '\115' << '\n';    // prints M followed by a newline
 }
 
+
+#include <map>
+#include <set>
+
+#include <unordered_map>
+#include <unordered_set>
+
+
+using std::map;
+using std::set;
+using std::unordered_map;
+
+// Foo must have ==
+struct Foo { string s; };
+
+// we'll see how to define our own operators in chapter 14
+bool operator==(const Foo& l, const Foo& r) { return l.s == r.s; }
+
+size_t FooHash(const Foo& f) { return hash<string>()(f.s); }
+
 int main()
 {
+	// how to override just the hash function;
+	 
+	// use FooHash to generate the hash code; Foo must have an == operator
+	unordered_set<Foo, decltype(FooHash)*> fooSet(10, FooHash);
+
+	mapTest::test();
+	//genericAlgorithm::test();
+	
+	//orderContainer::testSwap();
+	//orderContainer::test();
+	//ioTest::ioString1();
+	//ioTest::ioString2();
+	//ioTest::ioString3();
+	//ioTest::ioString4();
+	//ioTest::ioFile();
+	//ioTest::testFile1();
+	//ioTest::testFile2();
+	getchar();
+	return 0;
+
 	try
 	{
 		throw MyExecption();
