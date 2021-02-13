@@ -15,6 +15,7 @@
 #include "genericAlgorithm.h"
 
 #include "mapTest.h"
+#include "smartPointer.h"
 
 void testVariable() {
 	float f1 = 4.4f;
@@ -58,6 +59,7 @@ size_t FooHash(const Foo& f) { return hash<string>()(f.s); }
 
 int main()
 {
+	smartPointer::test();
 	// how to override just the hash function;
 	 
 	// use FooHash to generate the hash code; Foo must have an == operator
