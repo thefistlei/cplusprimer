@@ -16,6 +16,8 @@
 
 #include "mapTest.h"
 #include "smartPointer.h"
+#include "referenceCount.h"
+#include "referenceCountSwap.h"
 
 void testVariable() {
 	float f1 = 4.4f;
@@ -57,9 +59,15 @@ bool operator==(const Foo& l, const Foo& r) { return l.s == r.s; }
 
 size_t FooHash(const Foo& f) { return hash<string>()(f.s); }
 
+//using referenceCountSwap;
 int main()
 {
-	smartPointer::test();
+	refrenceCountSwap::HasPtr::test();
+	//HasPtr::test();
+	getchar();
+	return 0;
+
+	//smartPointer::test();
 	// how to override just the hash function;
 	 
 	// use FooHash to generate the hash code; Foo must have an == operator
@@ -77,8 +85,7 @@ int main()
 	//ioTest::ioFile();
 	//ioTest::testFile1();
 	//ioTest::testFile2();
-	getchar();
-	return 0;
+
 
 	try
 	{

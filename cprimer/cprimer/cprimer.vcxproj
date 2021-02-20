@@ -162,6 +162,8 @@
     <ClInclude Include="mapTest.h" />
     <ClInclude Include="orderContainer.h" />
     <ClInclude Include="QueryResult.h" />
+    <ClInclude Include="referenceCount.h" />
+    <ClInclude Include="referenceCountSwap.h" />
     <ClInclude Include="Sales_item.h" />
     <ClInclude Include="smartPointer.h" />
     <ClInclude Include="StrBlob.h" />

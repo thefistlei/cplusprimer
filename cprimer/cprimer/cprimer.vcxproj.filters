@@ -65,5 +65,11 @@
     <ClInclude Include="TextQuery.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="referenceCount.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="referenceCountSwap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

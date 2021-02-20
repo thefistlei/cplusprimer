@@ -1,1 +1,1 @@
-D:/code/cprimerGit/cplusprimer/cprimer
+cd D:/code/cprimerGit/cplusprimer/cprimer
