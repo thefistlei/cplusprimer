@@ -153,10 +153,14 @@
   <ItemGroup>
     <ClCompile Include="add_item.cpp" />
     <ClCompile Include="cprimer.cpp" />
+    <ClCompile Include="Folder.cpp" />
+    <ClCompile Include="StrVec.cpp" />
     <ClCompile Include="TextQuery.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="add_item.h" />
+    <ClInclude Include="copyControl.h" />
+    <ClInclude Include="Folder.h" />
     <ClInclude Include="genericAlgorithm.h" />
     <ClInclude Include="ioTest.h" />
     <ClInclude Include="mapTest.h" />
@@ -167,6 +171,7 @@
     <ClInclude Include="Sales_item.h" />
     <ClInclude Include="smartPointer.h" />
     <ClInclude Include="StrBlob.h" />
+    <ClInclude Include="StrVec.h" />
     <ClInclude Include="TestSales_item.h" />
     <ClInclude Include="TextQuery.h" />
     <ClInclude Include="Version_test.h" />

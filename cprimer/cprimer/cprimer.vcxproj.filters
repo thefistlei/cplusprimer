@@ -24,6 +24,12 @@
     <ClCompile Include="TextQuery.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="StrVec.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Folder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sales_item.h">
@@ -69,6 +75,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="referenceCountSwap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StrVec.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="copyControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Folder.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
