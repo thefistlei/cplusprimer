@@ -165,6 +165,7 @@
     <ClInclude Include="ioTest.h" />
     <ClInclude Include="mapTest.h" />
     <ClInclude Include="orderContainer.h" />
+    <ClInclude Include="overloadOperator.h" />
     <ClInclude Include="QueryResult.h" />
     <ClInclude Include="referenceCount.h" />
     <ClInclude Include="referenceCountSwap.h" />

@@ -18,7 +18,8 @@
 #include "smartPointer.h"
 #include "referenceCount.h"
 #include "referenceCountSwap.h"
-#include "copyControl.h"
+#include "copyControl.h" 
+#include "overloadOperator.h"
 
 void testVariable() {
 	float f1 = 4.4f;
@@ -63,8 +64,10 @@ size_t FooHash(const Foo& f) { return hash<string>()(f.s); }
 //using referenceCountSwap;
 int main()
 {
+
+	OverloadOperator::test();
 	//refrenceCountSwap::HasPtr::test();
-	copyControl::test();
+	//copyControl::test();
 	//HasPtr::test();
 	getchar();
 	return 0;
