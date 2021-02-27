@@ -312,6 +312,68 @@ namespace OverloadOperator
         char sep;      // character to print after each output
     };
 
+    int add(int i, int j) { return i + j; }
+
+    string add1(string i, string j) {
+        return i + j;
+    }
+
+    void std_functionObject_test()
+    {  
+        // function-object class
+        struct divide
+        {
+            int operator()(int denominator, int divisor)
+            {
+                return denominator / divisor;
+            }
+        };
+
+
+            ;
+
+
+         
+        //lambda表达式，其产生一个未命名的函数对象类
+        auto mod = [](int i, int j) { return i % j; };
+
+        function<int(int, int)> f1 = add;  //函数指针
+        function<int(int, int)> f2 = divide();  //函数对象类的指针
+        function<int(int, int)> f3 = [](int i, int j) {return i * j; };  //lambda
+
+        std::cout << f1(4, 2) << endl;   // prints 6
+        cout << f2(4, 2) << endl;   // prints 2
+        cout << f3(4, 2) << endl;   // prints 8 
+        
+        //使用map映射
+        map<string, function<int(int, int)> > binops = {
+            {"+",add},  //函数指针
+            {"-",std::minus<int>()},  //标准库函数对象
+            {"/",divide()},  // 用户定义的函数对象
+            {"*",[](int i,int j) {return i * j; }},  //未命名的lambda
+            {"%",mod} //已命名的lambda对象
+        };
+
+        //这个时候insert是可以的 
+        binops.insert({ "+", add });	//函数指针
+        binops.insert({ "/",divide() });	//函数对象
+        binops.insert({ "%", mod });	//lambda表达式
+        binops.insert({ "add" , [](int a, int b) {return add(a, b); } });//lambda表达式
+
+        cout << binops["+"](10, 5)<<endl;//调用add(10, 5)
+        cout << binops["-"](10, 5) << endl;
+        cout << binops["/"](10, 5) << endl;	//使用divide对象调用括号运算符
+        cout << binops["*"](10, 5) << endl;
+        cout << binops["%"](10, 5) << endl;//调用lambda函数对象
+        cout << binops["add"](10, 5) << endl;//调用lambda函数对象    
+
+        //调用代码
+        //使用map映射
+       // map<string, function<int(int, int)> > binops;
+       // binops.insert({ "+", add });
+        //error,不能将mode或divide insert到binope中，因为他们类型不是函数指针
+       // binops.insert({ "%", mod });
+    }
 
     void sysLib_functionObject_test2()
     {
@@ -415,7 +477,8 @@ namespace OverloadOperator
     }
 
     void test() {
-        sysLib_functionObject_test2();
+        std_functionObject_test();
+        //sysLib_functionObject_test2();
         //sysLib_functionObject_test();
         //lambda_functionObject_test2(3);
        // lambda_functionObject_test();
