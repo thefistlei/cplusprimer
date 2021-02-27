@@ -314,7 +314,7 @@ namespace OverloadOperator
 
     int add(int i, int j) { return i + j; }
 
-    string add1(string i, string j) {
+    string add(string i, string j) {
         return i + j;
     }
 
@@ -337,7 +337,10 @@ namespace OverloadOperator
         //lambda表达式，其产生一个未命名的函数对象类
         auto mod = [](int i, int j) { return i % j; };
 
-        function<int(int, int)> f1 = add;  //函数指针
+        int (*fp) (int, int) = add;
+      
+
+        function<int(int, int)> f1 = fp;  //函数指针
         function<int(int, int)> f2 = divide();  //函数对象类的指针
         function<int(int, int)> f3 = [](int i, int j) {return i * j; };  //lambda
 
@@ -347,7 +350,7 @@ namespace OverloadOperator
         
         //使用map映射
         map<string, function<int(int, int)> > binops = {
-            {"+",add},  //函数指针
+            {"+",fp},  //函数指针
             {"-",std::minus<int>()},  //标准库函数对象
             {"/",divide()},  // 用户定义的函数对象
             {"*",[](int i,int j) {return i * j; }},  //未命名的lambda
@@ -355,14 +358,14 @@ namespace OverloadOperator
         };
 
         //这个时候insert是可以的 
-        binops.insert({ "+", add });	//函数指针
+        binops.insert({ "+", fp });	//函数指针
         binops.insert({ "/",divide() });	//函数对象
         binops.insert({ "%", mod });	//lambda表达式
         binops.insert({ "add" , [](int a, int b) {return add(a, b); } });//lambda表达式
 
         cout << binops["+"](10, 5)<<endl;//调用add(10, 5)
         cout << binops["-"](10, 5) << endl;
-        cout << binops["/"](10, 5) << endl;	//使用divide对象调用括号运算符
+        cout << binops["/"](10, 5) << endl;	//使用divide对象调用括号运算符 
         cout << binops["*"](10, 5) << endl;
         cout << binops["%"](10, 5) << endl;//调用lambda函数对象
         cout << binops["add"](10, 5) << endl;//调用lambda函数对象    
