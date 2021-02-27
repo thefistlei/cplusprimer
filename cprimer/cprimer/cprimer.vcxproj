@@ -159,8 +159,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="add_item.h" />
+    <ClInclude Include="classTypeExchange.h" />
     <ClInclude Include="copyControl.h" />
     <ClInclude Include="Folder.h" />
+    <ClInclude Include="functionObject.h" />
     <ClInclude Include="genericAlgorithm.h" />
     <ClInclude Include="ioTest.h" />
     <ClInclude Include="mapTest.h" />

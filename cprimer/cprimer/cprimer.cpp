@@ -20,6 +20,8 @@
 #include "referenceCountSwap.h"
 #include "copyControl.h" 
 #include "overloadOperator.h"
+#include "functionObject.h"
+#include "classTypeExchange.h"
 
 void testVariable() {
 	float f1 = 4.4f;
@@ -64,8 +66,9 @@ size_t FooHash(const Foo& f) { return hash<string>()(f.s); }
 //using referenceCountSwap;
 int main()
 {
-
-	OverloadOperator::test();
+	classTypeExchange::test();
+	//OverloadOperator2::test();
+	//OverloadOperator::test();
 	//refrenceCountSwap::HasPtr::test();
 	//copyControl::test();
 	//HasPtr::test();

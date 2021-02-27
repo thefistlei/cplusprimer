@@ -89,5 +89,11 @@
     <ClInclude Include="overloadOperator.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="functionObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="classTypeExchange.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
