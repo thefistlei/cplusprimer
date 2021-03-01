@@ -1,1 +1,6 @@
 cd D:/code/cprimerGit/cplusprimer/cprimer
+
+git config user.name thefist
+
+
+git config user.email thefist@126.com
