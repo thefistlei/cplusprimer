@@ -166,6 +166,7 @@
     <ClInclude Include="genericAlgorithm.h" />
     <ClInclude Include="ioTest.h" />
     <ClInclude Include="mapTest.h" />
+    <ClInclude Include="oopTest.h" />
     <ClInclude Include="orderContainer.h" />
     <ClInclude Include="overloadOperator.h" />
     <ClInclude Include="QueryResult.h" />

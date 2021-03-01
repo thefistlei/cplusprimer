@@ -1,0 +1,17 @@
+﻿  cprimer.cpp
+D:\code\cprimerGit\cplusprimer\cprimer\cprimer\smartPointer.h(55,9): warning C4834: 放弃具有 "nodiscard" 属性的函数的返回值
+D:\code\cprimerGit\cplusprimer\cprimer\cprimer\smartPointer.h(56,9): warning C4834: 放弃具有 "nodiscard" 属性的函数的返回值
+D:\code\cprimerGit\cplusprimer\cprimer\cprimer\smartPointer.h(297,1): warning C4267: “=”: 从“size_t”转换到“_Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+D:\code\cprimerGit\cplusprimer\cprimer\cprimer\smartPointer.h(305,1): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\cprimerGit\cplusprimer\cprimer\cprimer\overloadOperator.h(195,1): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\cprimerGit\cplusprimer\cprimer\cprimer\overloadOperator.h(216,1): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\cprimerGit\cplusprimer\cprimer\cprimer\classTypeExchange.h(44,1): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\cprimerGit\cplusprimer\cprimer\cprimer\classTypeExchange.h(70,39): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+D:\code\cprimerGit\cplusprimer\cprimer\cprimer\classTypeExchange.h(81,30): warning C4552: ”+“: 未使用表达式结果
+D:\code\cprimerGit\cplusprimer\cprimer\cprimer\classTypeExchange.h(132,14): warning C4101: “lg”: 未引用的局部变量
+D:\code\cprimerGit\cplusprimer\cprimer\cprimer\cprimer.cpp(104,22): warning C4101: “e”: 未引用的局部变量
+  cprimer.vcxproj -> D:\code\cprimerGit\cplusprimer\cprimer\x64\Debug\cprimer.exe
