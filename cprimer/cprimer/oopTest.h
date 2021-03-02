@@ -106,7 +106,188 @@ namespace oopTest
 		test2();
 		test3();
 	}
+
+	
 }
 
- 
+namespace oopPermissionTest0
+{
+	class Base {
+	protected:
+		int prot_mem;  //protected 成员
+
+	};
+	class Sneaky :public Base {
+	public:
+		void clobber(Sneaky&);  //能访问Sneaky::prot_mem
+
+		void clobber(Base&);  //不能访问Base::prot_mem
+
+		void testFunc();
+		int j;
+	};
+	void Sneaky::clobber(Sneaky& s) {
+		s.j = s.prot_mem = 0;
+	} //正确能访问Sneaky对象的private和protected成员
+
+	void Sneaky::clobber(Base& b) {
+		//b.prot_mem = 0; 
+	}//错误不能访问protected的成员
+
+	void Sneaky::testFunc() {
+		std::cout << prot_mem;
+		;
+	}
+
+	void test() {
+		Sneaky o;
+		o.testFunc();
+	}
+
+	//class Base {
+	//protected:
+	//	int prot_mem;  //protected 成员
+
+	//};
+	//class Sneaky :public Base {
+	//public:
+	//	void clobber(Sneaky&);  //能访问Sneaky::prot_mem
+
+	//	void clobber(Base&);  //不能访问Base::prot_mem
+
+	//	void testFunc();
+	//	int j;
+	//};
+	//void Sneaky::clobber(Sneaky& s) { 
+	//	s.j = s.prot_mem = 0;
+	//} //正确能访问Sneaky对象的private和protected成员
+
+	//void Sneaky::clobber(Base& b) { 
+	//	//b.prot_mem = 0; 
+	//}//错误不能访问protected的成员
+
+	//void Sneaky::testFunc() { 
+	//	std::cout << prot_mem;
+	//	;
+	//}
+
+	//void test() {
+	//	Sneaky o;
+	//	o.testFunc(); 
+	//}
+}
+
+namespace oopPermissionTest
+{
+	//class permissionTest {
+	//public:
+	//	permissionTest() {}
+	//	~permissionTest() {}
+
+	//};
+
+	class Base2
+	{
+	public:
+		void pub_mem() {}
+	protected:
+		int prot_mem;
+	private:
+		char priv_mem;
+	};
+
+	struct Pub_Derv : public Base2
+	{
+		int f() { return prot_mem; }
+		//char g() {return priv_mem;} //error:这个是private的无法访问
+	};
+
+	struct Priv_Derv : private Base2
+	{
+		//私有继承不影响派生类中的访问，只是Base对于Priv_Derv来说都是private的
+		int f() const { return prot_mem; }
+	};
+
+	void fun1()
+	{
+		Pub_Derv d1;
+		Priv_Derv d2;
+		d1.pub_mem();
+		//d2.pub_mem();   //error:这里是私有继承，对于Priv_Derv来说Base2里面的类都是private类型的
+	}
+
+	struct Derived_from_public : public Pub_Derv
+	{
+		int use_base() { return prot_mem; }    //ok:protected in pub_Derv
+	};
+
+	void test() {
+
+	}
+}
+
+namespace oopPermissionTest2
+{
+
+	class Base {
+		friend class Pal;
+	protected:
+		int prot_mem;  //protected 成员 
+	private:
+		int priv_mem;
+	};
+
+	class Sneaky :public Base {
+		friend void clobber(Sneaky&);  //能访问Sneaky::prot_mem 
+		friend void clobber(Base&);  //不能访问Base::prot_mem 
+		int j;
+	};
+
+
+	class Pal
+	{
+	public:
+		 int f(Base b) { return b.prot_mem; }
+		// int f2(Sneaky s) {return s.j;}  //error:Pal 不是Sneaky的友元
+		int f3(Sneaky s) { return s.prot_mem; }    //不要惊讶，这是对的
+		int f4(Sneaky s) { return s.priv_mem; }    //不要惊讶，这是对的
+	};
+
+	class D2 : public Pal
+	{
+	public:
+		// int mem(Base b){return b.prot_mem;}    //error: 友元是无法继承的
+
+	};
+
+	void test() {
+
+	}
+}
+
+namespace oopPermissionTest3
+{
+	class Base {
+	public:
+		Base() {}
+	public:
+		std::size_t size() const { return n; }
+	protected:
+		std::size_t n;
+	};
+
+	class Derived : private Base {
+	public:
+		using Base::size;  //保持对象尺寸相关的成员的访问级别
+
+	protected:
+		//using Base::n; //使用using关键字改变成员变量的访问级别。
+
+	}; 
+
+	Derived d;
+	std::size_t t1 = d.size();//ok
+	//std::size_t t2 = d.n;//error
+}
+
 #endif

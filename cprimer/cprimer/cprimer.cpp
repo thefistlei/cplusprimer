@@ -67,7 +67,8 @@ size_t FooHash(const Foo& f) { return hash<string>()(f.s); }
 //using referenceCountSwap;
 int main()
 {
-	oopTest::test();
+	oopPermissionTest0::test();
+	//oopTest::test();
 	//classTypeExchange::test();
 	//OverloadOperator2::test();
 	//OverloadOperator::test();
