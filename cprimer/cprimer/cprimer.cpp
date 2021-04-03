@@ -67,7 +67,13 @@ size_t FooHash(const Foo& f) { return hash<string>()(f.s); }
 //using referenceCountSwap;
 int main()
 {
-	oopPermissionTest0::test();
+
+	// prompt user to enter two numbers
+ 
+	oopClassDomainTest_move::test();
+	//oopClassDomainTest4::test();
+	//oopClassDomainTest2::test();
+	//oopPermissionTest0::test();
 	//oopTest::test();
 	//classTypeExchange::test();
 	//OverloadOperator2::test();
